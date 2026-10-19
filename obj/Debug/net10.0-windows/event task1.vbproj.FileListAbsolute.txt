@@ -16,3 +16,4 @@ D:\ALL\WORK\sem 1 yr 2\working  event&user\event task1\obj\Debug\net10.0-windows
 D:\ALL\WORK\sem 1 yr 2\working  event&user\event task1\obj\Debug\net10.0-windows\event ta.6E3BB8D9.Up2Date
 D:\ALL\WORK\sem 1 yr 2\working  event&user\event task1\obj\Debug\net10.0-windows\event_task1.fmstapplyform.resources
 D:\ALL\WORK\sem 1 yr 2\working  event&user\event task1\obj\Debug\net10.0-windows\event_task1.fmsuccessful.resources
+D:\ALL\WORK\sem 1 yr 2\working  event&user\event task1\obj\Debug\net10.0-windows\event task1.sourcelink.json

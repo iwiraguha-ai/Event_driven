@@ -16,7 +16,7 @@ Imports System.Reflection
 <Assembly: System.Reflection.AssemblyCompanyAttribute("event task1"),  _
  Assembly: System.Reflection.AssemblyConfigurationAttribute("Debug"),  _
  Assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0"),  _
- Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0"),  _
+ Assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a2ac3d6d8412b1cbf6ae7a76c765f7e1c476a50b"),  _
  Assembly: System.Reflection.AssemblyProductAttribute("event task1"),  _
  Assembly: System.Reflection.AssemblyTitleAttribute("event task1"),  _
  Assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0"),  _

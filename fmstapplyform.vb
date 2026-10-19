@@ -1,32 +1,33 @@
 ﻿Partial Class fmstapplyform
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnapply.Click
 
-        'Validate Student Name
-        If txtname.Text.Trim() = "" Then
-            MessageBox.Show("Please enter the student's name.",
-                            "Validation Error",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning)
-            txtname.Focus()
-            Exit Sub
-        End If
-        'Validate Student ID
-        If txtnin.Text.Trim() = "" Then
-            MessageBox.Show("Please enter the registration number.",
-                            "Validation Error",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning)
-            txtnin.Focus()
-            Exit Sub
-        End If
-        'Validate Course Selection
-        If cmbcourse.SelectedIndex = -1 Then
-            MessageBox.Show("Please select a programme.",
-                            "Validation Error",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning)
+        'Create a Student object
+        Dim student As New Student()
+        'Assign values from the form to the Student object
+        student.FullName = txtname.Text
+        student.NationalID = txtnin.Text
 
-            cmbcourse.Focus()
+        If cmbcourse.SelectedIndex <> -1 Then
+            student.Course = cmbcourse.SelectedItem.ToString()
+        Else
+            student.Course = String.Empty
+        End If
+
+        'Validate the student details
+        If Not student.IsValid() Then
+            If String.IsNullOrWhiteSpace(student.FullName) Then
+                MessageBox.Show("Please enter the student's full name.", "Validation Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                txtname.Focus()
+            ElseIf String.IsNullOrWhiteSpace(student.NationalID) Then
+                MessageBox.Show("Please enter the registration number.", "Validation Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                txtnin.Focus()
+            ElseIf String.IsNullOrWhiteSpace(student.Course) Then
+                MessageBox.Show("Please select a programme.", "Validation Error",
+                                MessageBoxButtons.OK, MessageBoxIcon.Warning)
+                cmbcourse.Focus()
+            End If
             Exit Sub
         End If
         ' Validate Age (Must be at least 20 years old)
@@ -38,19 +39,14 @@
         End If
         'Validate Terms and Conditions
         If chkterms.Checked = False Then
-            MessageBox.Show("Please accept the terms and conditions.",
-                            "Validation Error",
-                            MessageBoxButtons.OK,
-                            MessageBoxIcon.Warning)
-
+            MessageBox.Show("Please accept the terms and conditions.", "Validation Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning)
             chkterms.Focus()
             Exit Sub
         End If
         'Display Success Message
-        MessageBox.Show("Student application submitted successfully!",
-                        "Registration Successful",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information)
+        MessageBox.Show("Student application submitted successfully!", "Registration Successful",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information)
 
         'Open the second form
         Dim successForm As New fmsuccessful()
@@ -58,12 +54,16 @@
         successForm.NationalID = Me.txtnin.Text.Trim()
         successForm.Course = Me.cmbcourse.SelectedItem.ToString()
         successForm.ShowDialog()
-        Me.Hide()
+        Me.Close()
+
     End Sub
 
     Private Sub Button2_Click(sender As Object, e As EventArgs) Handles btnclear.Click
         txtnin.Clear()
         txtname.Clear()
+        txtguardian.Clear()
+        txtguardiancontact.Clear()
+        txtrelation.Clear()
         txtnumber.Clear()
         cmbcourse.SelectedIndex = -1
         txtaddress.Clear()

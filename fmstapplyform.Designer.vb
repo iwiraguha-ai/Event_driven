@@ -43,8 +43,17 @@ Partial Class fmstapplyform
         rdomale = New RadioButton()
         chkterms = New CheckBox()
         lblcount = New Label()
-        GroupBox2 = New GroupBox()
+        grppersonal = New GroupBox()
+        txtguardiancontact = New TextBox()
+        Label10 = New Label()
+        txtrelation = New TextBox()
+        Label9 = New Label()
+        txtguardian = New TextBox()
+        Label8 = New Label()
+        Panel1 = New Panel()
         GroupBox1.SuspendLayout()
+        grppersonal.SuspendLayout()
+        Panel1.SuspendLayout()
         SuspendLayout()
         ' 
         ' Label1
@@ -214,9 +223,9 @@ Partial Class fmstapplyform
         GroupBox1.Controls.Add(Label6)
         GroupBox1.Font = New Font("Arial Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
         GroupBox1.ForeColor = Color.FromArgb(CByte(64), CByte(0), CByte(0))
-        GroupBox1.Location = New Point(12, 24)
+        GroupBox1.Location = New Point(12, 27)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(645, 470)
+        GroupBox1.Size = New Size(672, 501)
         GroupBox1.TabIndex = 17
         GroupBox1.TabStop = False
         GroupBox1.Text = "Student Application Form"
@@ -262,24 +271,94 @@ Partial Class fmstapplyform
         lblcount.Text = "Characters : 0"
         lblcount.TextAlign = ContentAlignment.MiddleCenter
         ' 
-        ' GroupBox2
+        ' grppersonal
         ' 
-        GroupBox2.BackColor = Color.NavajoWhite
-        GroupBox2.Location = New Point(663, 74)
-        GroupBox2.Name = "GroupBox2"
-        GroupBox2.Size = New Size(281, 374)
-        GroupBox2.TabIndex = 18
-        GroupBox2.TabStop = False
-        GroupBox2.Text = "GroupBox2"
+        grppersonal.BackColor = Color.NavajoWhite
+        grppersonal.Controls.Add(txtguardiancontact)
+        grppersonal.Controls.Add(Label10)
+        grppersonal.Controls.Add(txtrelation)
+        grppersonal.Controls.Add(Label9)
+        grppersonal.Controls.Add(txtguardian)
+        grppersonal.Controls.Add(Label8)
+        grppersonal.Font = New Font("Arial Narrow", 12F, FontStyle.Bold, GraphicsUnit.Point, CByte(0))
+        grppersonal.Location = New Point(690, 72)
+        grppersonal.Name = "grppersonal"
+        grppersonal.Size = New Size(291, 426)
+        grppersonal.TabIndex = 18
+        grppersonal.TabStop = False
+        grppersonal.Text = "Personal Information"
+        ' 
+        ' txtguardiancontact
+        ' 
+        txtguardiancontact.ForeColor = SystemColors.MenuHighlight
+        txtguardiancontact.Location = New Point(20, 239)
+        txtguardiancontact.Multiline = True
+        txtguardiancontact.Name = "txtguardiancontact"
+        txtguardiancontact.Size = New Size(227, 33)
+        txtguardiancontact.TabIndex = 25
+        ' 
+        ' Label10
+        ' 
+        Label10.Location = New Point(92, 212)
+        Label10.Name = "Label10"
+        Label10.Size = New Size(96, 24)
+        Label10.TabIndex = 24
+        Label10.Text = "Contact"
+        Label10.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' txtrelation
+        ' 
+        txtrelation.ForeColor = SystemColors.MenuHighlight
+        txtrelation.Location = New Point(20, 165)
+        txtrelation.Multiline = True
+        txtrelation.Name = "txtrelation"
+        txtrelation.Size = New Size(227, 33)
+        txtrelation.TabIndex = 23
+        ' 
+        ' Label9
+        ' 
+        Label9.Location = New Point(92, 138)
+        Label9.Name = "Label9"
+        Label9.Size = New Size(96, 24)
+        Label9.TabIndex = 22
+        Label9.Text = "Relation"
+        Label9.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' txtguardian
+        ' 
+        txtguardian.ForeColor = SystemColors.MenuHighlight
+        txtguardian.Location = New Point(20, 90)
+        txtguardian.Multiline = True
+        txtguardian.Name = "txtguardian"
+        txtguardian.Size = New Size(227, 32)
+        txtguardian.TabIndex = 21
+        ' 
+        ' Label8
+        ' 
+        Label8.Location = New Point(92, 49)
+        Label8.Name = "Label8"
+        Label8.Size = New Size(96, 29)
+        Label8.TabIndex = 21
+        Label8.Text = "Guardian"
+        Label8.TextAlign = ContentAlignment.MiddleCenter
+        ' 
+        ' Panel1
+        ' 
+        Panel1.Controls.Add(grppersonal)
+        Panel1.Controls.Add(GroupBox1)
+        Panel1.Dock = DockStyle.Fill
+        Panel1.Location = New Point(0, 0)
+        Panel1.Name = "Panel1"
+        Panel1.Size = New Size(993, 540)
+        Panel1.TabIndex = 19
         ' 
         ' fmstapplyform
         ' 
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.BlanchedAlmond
-        ClientSize = New Size(956, 524)
-        Controls.Add(GroupBox2)
-        Controls.Add(GroupBox1)
+        ClientSize = New Size(993, 540)
+        Controls.Add(Panel1)
         ForeColor = SystemColors.MenuHighlight
         Name = "fmstapplyform"
         StartPosition = FormStartPosition.CenterScreen
@@ -287,6 +366,9 @@ Partial Class fmstapplyform
         WindowState = FormWindowState.Maximized
         GroupBox1.ResumeLayout(False)
         GroupBox1.PerformLayout()
+        grppersonal.ResumeLayout(False)
+        grppersonal.PerformLayout()
+        Panel1.ResumeLayout(False)
         ResumeLayout(False)
     End Sub
 
@@ -311,6 +393,13 @@ Partial Class fmstapplyform
     Friend WithEvents chkterms As CheckBox
     Friend WithEvents rdofemale As RadioButton
     Friend WithEvents rdomale As RadioButton
-    Friend WithEvents GroupBox2 As GroupBox
+    Friend WithEvents grppersonal As GroupBox
+    Friend WithEvents Label8 As Label
+    Friend WithEvents Panel1 As Panel
+    Friend WithEvents txtguardian As TextBox
+    Friend WithEvents txtrelation As TextBox
+    Friend WithEvents Label9 As Label
+    Friend WithEvents txtguardiancontact As TextBox
+    Friend WithEvents Label10 As Label
 
 End Class
