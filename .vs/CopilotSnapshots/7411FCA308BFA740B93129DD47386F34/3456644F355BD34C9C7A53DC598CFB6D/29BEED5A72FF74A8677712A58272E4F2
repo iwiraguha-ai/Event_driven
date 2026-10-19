@@ -1,0 +1,25 @@
+﻿Public Class fmsuccessful
+    Public Property FullName As String
+    Public Property StudentID As String
+    Public Property Course As String
+
+    Private Sub fmsuccessful_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Label1.Text = "Student Registration Successful!"
+
+        Label2.Text = "Full Name: " & FullName & Environment.NewLine &
+                  "Student ID: " & StudentID & Environment.NewLine &
+                  "Course: " & Course
+
+    End Sub
+
+    Private Sub btnReturn_Click(sender As Object, e As EventArgs) Handles btnreturn.Click
+
+        Me.Close()
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnclose.Click
+
+        Application.Exit()
+
+    End Sub
+End Class

@@ -1,0 +1,37 @@
+﻿Public Class fmsuccessful
+    Public Sub New()
+        ' This call is required by the designer.
+        InitializeComponent()
+    End Sub
+    <System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)>
+    <System.ComponentModel.Browsable(False)>
+    Public Property FullName As String
+
+    <System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)>
+    <System.ComponentModel.Browsable(False)>
+    Public Property NationalID As String
+
+    <System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)>
+    <System.ComponentModel.Browsable(False)>
+    Public Property Course As String
+
+    Private Sub fmsuccessful_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        Label1.Text = "Student Registration Successful!"
+
+        Label2.Text = "Full Name: " & FullName & Environment.NewLine &
+                  "National ID: " & NationalID & Environment.NewLine &
+                  "Course: " & Course
+
+    End Sub
+
+    Private Sub btnReturn_Click(sender As Object, e As EventArgs) Handles btnreturn.Click
+
+        Me.Close()
+    End Sub
+
+    Private Sub btnClose_Click(sender As Object, e As EventArgs) Handles btnclose.Click
+
+        Application.Exit()
+
+    End Sub
+End Class
