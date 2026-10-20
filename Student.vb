@@ -4,6 +4,7 @@
     Private _FullName As String = String.Empty
     Private _Nationalid As String = String.Empty
     Private _Course As String = String.Empty
+    Private _Country As String = String.Empty
 
     'Full Name property
     Public Property FullName As String
@@ -29,6 +30,20 @@
                 _Nationalid = String.Empty
             Else
                 _Nationalid = value.Trim()
+            End If
+        End Set
+    End Property
+
+    'Country property
+    Public Property Country As String
+        Get
+            Return _Country
+        End Get
+        Set(value As String)
+            If String.IsNullOrWhiteSpace(value) Then
+                _Country = String.Empty
+            Else
+                _Country = value.Trim()
             End If
         End Set
     End Property

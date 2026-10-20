@@ -1,4 +1,5 @@
-﻿Partial Class fmstapplyform
+﻿Imports System.Globalization
+Partial Class fmstapplyform
     Private Sub Button1_Click(sender As Object, e As EventArgs) Handles btnapply.Click
 
         'Create a Student object
@@ -11,6 +12,12 @@
             student.Course = cmbcourse.SelectedItem.ToString()
         Else
             student.Course = String.Empty
+        End If
+        If cmbcountry.SelectedIndex <> -1 Then
+            MessageBox.Show("Please select a country.", "Validation Error",
+                            MessageBoxButtons.OK, MessageBoxIcon.Warning)
+            cmbcountry.Focus()
+            Exit Sub
         End If
 
         'Validate the student details
@@ -53,6 +60,7 @@
         successForm.FullName = Me.txtname.Text.Trim()
         successForm.NationalID = Me.txtnin.Text.Trim()
         successForm.Course = Me.cmbcourse.SelectedItem.ToString()
+        successForm.Country = Me.cmbcountry.SelectedItem.ToString()
         successForm.ShowDialog()
         Me.Close()
 
@@ -95,13 +103,26 @@
 
     Private Sub cmbcourse_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbcourse.SelectedIndexChanged
         If cmbcourse.SelectedIndex <> -1 Then
-            Label7.Text = "Courses: " & cmbcourse.SelectedItem.ToString()
+            Label7.Text = "Courses: " & cmbcourse.SelectedItem.ToString
         Else
             Label7.Text = "Courses: None"
         End If
     End Sub
 
     Private Sub fmstapplyform_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+
+        cmbcountry.Items.Clear()
+        Dim countries As New SortedSet(Of String)(StringComparer.OrdinalIgnoreCase)
+        For Each culture As CultureInfo In CultureInfo.GetCultures(CultureTypes.SpecificCultures)
+            Try
+                Dim region As New RegionInfo(culture.Name)
+                countries.Add(region.EnglishName)
+            Catch ex As ArgumentException
+                ' Skip cultures without a valid region.
+            End Try
+        Next
+        cmbcountry.Items.AddRange(countries.ToArray())
+        cmbcountry.SelectedIndex = -1
 
         ' Automatically set Maxdate to 20 years ago from today
         DateTimePicker1.MaxDate = DateTime.Today.AddYears(-20)
@@ -115,6 +136,10 @@
     End Sub
 
     Private Sub DateTimePicker1_ValueChanged(sender As Object, e As EventArgs) Handles DateTimePicker1.ValueChanged
+
+    End Sub
+
+    Private Sub ComboBox1_SelectedIndexChanged(sender As Object, e As EventArgs) Handles cmbcountry.SelectedIndexChanged
 
     End Sub
 End Class

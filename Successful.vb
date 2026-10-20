@@ -15,13 +15,17 @@
     <System.ComponentModel.Browsable(False)>
     Public Property Course As String
 
+    <System.ComponentModel.DesignerSerializationVisibility(System.ComponentModel.DesignerSerializationVisibility.Hidden)>
+    <System.ComponentModel.Browsable(False)>
+    Public Property Country As String
+
     Private Sub fmsuccessful_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Label1.Text = "Student Registration Successful!"
 
         Label2.Text = "Full Name: " & FullName & Environment.NewLine &
                   "National ID: " & NationalID & Environment.NewLine &
-                  "Course: " & Course
-
+                  "Course: " & Course & Environment.NewLine &
+                  "Country: " & Country & Environment.NewLine
     End Sub
 
     Private Sub btnReturn_Click(sender As Object, e As EventArgs) Handles btnreturn.Click

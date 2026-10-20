@@ -39,6 +39,8 @@ Partial Class fmstapplyform
         btnclear = New Button()
         btnexit = New Button()
         GroupBox1 = New GroupBox()
+        cmbcountry = New ComboBox()
+        Label11 = New Label()
         rdofemale = New RadioButton()
         rdomale = New RadioButton()
         chkterms = New CheckBox()
@@ -59,7 +61,7 @@ Partial Class fmstapplyform
         ' Label1
         ' 
         Label1.AutoSize = True
-        Label1.Location = New Point(101, 31)
+        Label1.Location = New Point(87, 34)
         Label1.Name = "Label1"
         Label1.Size = New Size(77, 20)
         Label1.TabIndex = 0
@@ -68,7 +70,7 @@ Partial Class fmstapplyform
         ' Label2
         ' 
         Label2.AutoSize = True
-        Label2.Location = New Point(101, 75)
+        Label2.Location = New Point(87, 75)
         Label2.Name = "Label2"
         Label2.Size = New Size(72, 20)
         Label2.TabIndex = 1
@@ -77,7 +79,7 @@ Partial Class fmstapplyform
         ' Label3
         ' 
         Label3.AutoSize = True
-        Label3.Location = New Point(101, 120)
+        Label3.Location = New Point(87, 122)
         Label3.Name = "Label3"
         Label3.Size = New Size(54, 20)
         Label3.TabIndex = 2
@@ -86,7 +88,7 @@ Partial Class fmstapplyform
         ' Label4
         ' 
         Label4.AutoSize = True
-        Label4.Location = New Point(101, 165)
+        Label4.Location = New Point(87, 223)
         Label4.Name = "Label4"
         Label4.Size = New Size(102, 20)
         Label4.TabIndex = 3
@@ -95,7 +97,7 @@ Partial Class fmstapplyform
         ' Label5
         ' 
         Label5.AutoSize = True
-        Label5.Location = New Point(101, 208)
+        Label5.Location = New Point(101, 272)
         Label5.Name = "Label5"
         Label5.Size = New Size(60, 20)
         Label5.TabIndex = 4
@@ -104,7 +106,7 @@ Partial Class fmstapplyform
         ' Label6
         ' 
         Label6.AutoSize = True
-        Label6.Location = New Point(101, 260)
+        Label6.Location = New Point(87, 331)
         Label6.Name = "Label6"
         Label6.Size = New Size(86, 20)
         Label6.TabIndex = 5
@@ -113,7 +115,7 @@ Partial Class fmstapplyform
         ' Label7
         ' 
         Label7.AutoSize = True
-        Label7.Location = New Point(101, 316)
+        Label7.Location = New Point(95, 392)
         Label7.Name = "Label7"
         Label7.Size = New Size(60, 20)
         Label7.TabIndex = 6
@@ -121,7 +123,7 @@ Partial Class fmstapplyform
         ' 
         ' DateTimePicker1
         ' 
-        DateTimePicker1.Location = New Point(257, 255)
+        DateTimePicker1.Location = New Point(257, 325)
         DateTimePicker1.MaxDate = New Date(2026, 10, 19, 10, 36, 26, 0)
         DateTimePicker1.Name = "DateTimePicker1"
         DateTimePicker1.Size = New Size(227, 26)
@@ -147,7 +149,7 @@ Partial Class fmstapplyform
         ' 
         ' txtnumber
         ' 
-        txtnumber.Location = New Point(257, 163)
+        txtnumber.Location = New Point(257, 220)
         txtnumber.Multiline = True
         txtnumber.Name = "txtnumber"
         txtnumber.Size = New Size(227, 23)
@@ -155,7 +157,7 @@ Partial Class fmstapplyform
         ' 
         ' txtaddress
         ' 
-        txtaddress.Location = New Point(257, 206)
+        txtaddress.Location = New Point(257, 269)
         txtaddress.Multiline = True
         txtaddress.Name = "txtaddress"
         txtaddress.Size = New Size(227, 23)
@@ -166,14 +168,15 @@ Partial Class fmstapplyform
         cmbcourse.DropDownStyle = ComboBoxStyle.DropDownList
         cmbcourse.FormattingEnabled = True
         cmbcourse.Items.AddRange(New Object() {"Computer Science", "Education", "Information Technology", "Business Accounting", "Business Administration", "Law", "UHEC"})
-        cmbcourse.Location = New Point(257, 308)
+        cmbcourse.Location = New Point(257, 384)
         cmbcourse.Name = "cmbcourse"
         cmbcourse.Size = New Size(281, 28)
         cmbcourse.TabIndex = 13
         ' 
         ' btnapply
         ' 
-        btnapply.Location = New Point(86, 419)
+        btnapply.Anchor = AnchorStyles.Bottom
+        btnapply.Location = New Point(101, 490)
         btnapply.Name = "btnapply"
         btnapply.Size = New Size(75, 29)
         btnapply.TabIndex = 14
@@ -182,7 +185,8 @@ Partial Class fmstapplyform
         ' 
         ' btnclear
         ' 
-        btnclear.Location = New Point(272, 419)
+        btnclear.Anchor = AnchorStyles.Bottom
+        btnclear.Location = New Point(280, 490)
         btnclear.Name = "btnclear"
         btnclear.Size = New Size(75, 29)
         btnclear.TabIndex = 15
@@ -191,7 +195,8 @@ Partial Class fmstapplyform
         ' 
         ' btnexit
         ' 
-        btnexit.Location = New Point(440, 419)
+        btnexit.Anchor = AnchorStyles.Bottom
+        btnexit.Location = New Point(444, 490)
         btnexit.Name = "btnexit"
         btnexit.Size = New Size(75, 29)
         btnexit.TabIndex = 16
@@ -200,7 +205,10 @@ Partial Class fmstapplyform
         ' 
         ' GroupBox1
         ' 
+        GroupBox1.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         GroupBox1.BackColor = Color.NavajoWhite
+        GroupBox1.Controls.Add(cmbcountry)
+        GroupBox1.Controls.Add(Label11)
         GroupBox1.Controls.Add(rdofemale)
         GroupBox1.Controls.Add(rdomale)
         GroupBox1.Controls.Add(chkterms)
@@ -225,10 +233,29 @@ Partial Class fmstapplyform
         GroupBox1.ForeColor = Color.FromArgb(CByte(64), CByte(0), CByte(0))
         GroupBox1.Location = New Point(12, 27)
         GroupBox1.Name = "GroupBox1"
-        GroupBox1.Size = New Size(672, 501)
+        GroupBox1.Size = New Size(672, 548)
         GroupBox1.TabIndex = 17
         GroupBox1.TabStop = False
         GroupBox1.Text = "Student Application Form"
+        ' 
+        ' cmbcountry
+        ' 
+        cmbcountry.DropDownStyle = ComboBoxStyle.DropDownList
+        cmbcountry.FormattingEnabled = True
+        cmbcountry.Items.AddRange(New Object() {"Computer Science", "Education", "Information Technology", "Business Accounting", "Business Administration", "Law", "UHEC"})
+        cmbcountry.Location = New Point(257, 168)
+        cmbcountry.Name = "cmbcountry"
+        cmbcountry.Size = New Size(186, 28)
+        cmbcountry.TabIndex = 22
+        ' 
+        ' Label11
+        ' 
+        Label11.AutoSize = True
+        Label11.Location = New Point(87, 171)
+        Label11.Name = "Label11"
+        Label11.Size = New Size(58, 20)
+        Label11.TabIndex = 21
+        Label11.Text = "Country"
         ' 
         ' rdofemale
         ' 
@@ -255,7 +282,7 @@ Partial Class fmstapplyform
         ' chkterms
         ' 
         chkterms.AutoSize = True
-        chkterms.Location = New Point(304, 363)
+        chkterms.Location = New Point(304, 447)
         chkterms.Name = "chkterms"
         chkterms.Size = New Size(164, 24)
         chkterms.TabIndex = 18
@@ -273,6 +300,7 @@ Partial Class fmstapplyform
         ' 
         ' grppersonal
         ' 
+        grppersonal.Anchor = AnchorStyles.Top Or AnchorStyles.Bottom Or AnchorStyles.Left Or AnchorStyles.Right
         grppersonal.BackColor = Color.NavajoWhite
         grppersonal.Controls.Add(txtguardiancontact)
         grppersonal.Controls.Add(Label10)
@@ -349,7 +377,7 @@ Partial Class fmstapplyform
         Panel1.Dock = DockStyle.Fill
         Panel1.Location = New Point(0, 0)
         Panel1.Name = "Panel1"
-        Panel1.Size = New Size(993, 540)
+        Panel1.Size = New Size(993, 587)
         Panel1.TabIndex = 19
         ' 
         ' fmstapplyform
@@ -357,7 +385,7 @@ Partial Class fmstapplyform
         AutoScaleDimensions = New SizeF(7F, 15F)
         AutoScaleMode = AutoScaleMode.Font
         BackColor = Color.BlanchedAlmond
-        ClientSize = New Size(993, 540)
+        ClientSize = New Size(993, 587)
         Controls.Add(Panel1)
         ForeColor = SystemColors.MenuHighlight
         Name = "fmstapplyform"
@@ -401,5 +429,7 @@ Partial Class fmstapplyform
     Friend WithEvents Label9 As Label
     Friend WithEvents txtguardiancontact As TextBox
     Friend WithEvents Label10 As Label
+    Friend WithEvents Label11 As Label
+    Friend WithEvents cmbcountry As ComboBox
 
 End Class
